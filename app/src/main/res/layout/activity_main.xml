@@ -1,53 +1,73 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
-    android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    android:paddingBottom="@dimen/activity_vertical_margin" tools:context=".MainActivity">
+    tools:context=".MainActivity">
 
-    <TextView        android:id="@+id/textView"
-        android:layout_width="wrap_content"
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="姓名" />
+
+        <EditText
+            android:id="@+id/nameField"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:hint="givemepass"
+            android:singleLine="true" />
+
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="電話" />
+
+        <EditText
+            android:id="@+id/phoneField"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:hint="0987654321"
+            android:singleLine="true" />
+
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="性別" />
+
+        <EditText
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/nameEditText"
-        android:layout_alignParentStart="true"
-        android:text="Name:"
-        android:textSize="18sp" />
+        android:singleLine="true"
+        android:hint="Male/Female"
+        android:id="@+id/genderField"
+        />
+        <Button
+            android:id="@+id/btnSave"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:onClick="btnSave_Click"
+            android:text="儲存" />
 
-    <EditText
-        android:id="@+id/nameEditText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_toEndOf="@+id/textView"/>
+        <Button
+            android:id="@+id/btnClear"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:onClick="btnClear_Click"
+            android:text="清除" />
 
-    <Button
-        android:id="@+id/btnSave"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_below="@+id/textView"
-        android:layout_marginTop="52dp"
-        android:text="Save"
-        android:onClick="btnSave_Click"/>
-
-    <Button
-        android:id="@+id/btnRestore"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/btnSave"
-        android:layout_centerHorizontal="true"
-        android:text="Restore"
-        android:onClick="btnRestor_Click"/>
-
-    <Button
-        android:id="@+id/btnClear"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/btnRestore"
-        android:layout_alignParentEnd="true"
-        android:text="Clear"
-        android:onClick="btnClear_Click"/>
-
-
-
+        <Button
+            android:id="@+id/btnRestore"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:onClick="btnRead_Click"
+            android:text="讀取" />
+    </LinearLayout>
 </RelativeLayout>

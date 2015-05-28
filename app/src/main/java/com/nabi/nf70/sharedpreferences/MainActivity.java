@@ -1,17 +1,24 @@
 package com.nabi.nf70.sharedpreferences;
 
 import android.app.Activity;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.EditText;
+import android.widget.Toast;
 
 
 public class MainActivity extends Activity {
+    private EditText nameEditText;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        nameEditText = (EditText) findViewById(R.id.nameEditText);
     }
 
 
@@ -35,5 +42,32 @@ public class MainActivity extends Activity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    //按下Save按鈕
+    public void btnSave_Click(View view) {
+        //取得SharedPreference設定("Preference"為設定檔的名稱)
+        SharedPreferences settings = getSharedPreferences("Preference", 0);
+        //置入name屬性的字串
+        settings.edit().putString("name", nameEditText.getText().toString()).commit();
+    }
+
+    //按下Restore按鈕
+    public void btnRestor_Click(View view) {
+        //取得SharedPreference設定("Preference"為設定檔的名稱)
+        SharedPreferences settings = getSharedPreferences("Preference", 0);
+        //取出name屬性的字串
+        String name = settings.getString("name", "");
+        nameEditText.setText(name);
+    }
+
+    public void btnClear_Click(View view) {
+        //取得SharedPreference設定("Preference"為設定檔的名稱)
+        SharedPreferences settings = getSharedPreferences("Preference",0);
+        //將name資料進行清空動作
+        settings.edit()
+                .clear()
+                .commit();
+        Toast.makeText(MainActivity.this,"清除完成", Toast.LENGTH_LONG).show();
     }
 }
